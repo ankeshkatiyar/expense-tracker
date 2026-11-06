@@ -1,0 +1,56 @@
+---
+layout: null
+permalink: /get/
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get {{ site.app_name }}</title>
+  <meta name="description" content="Spendloom: expense tracker with an AI spending assistant, budgets, trip splitting and family budgets. Free on iPhone and Android.">
+  <meta property="og:title" content="Spendloom: Expense Tracker">
+  <meta property="og:description" content="Track spending, ask the AI assistant about your money, split trip costs and share a family budget. Free, no ads.">
+  <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}/get/">
+  <meta property="og:type" content="website">
+  <style>
+    :root { color-scheme: light dark; --accent: #4f46e5; --bg: #f2f2f7; --card: #fff; --muted: #6b7280; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #000; --card: #1c1c1e; --muted: #9ca3af; } }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); font: 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    main { max-width: 480px; margin: 0 auto; padding: 48px 16px; text-align: center; }
+    .card { background: var(--card); border-radius: 20px; padding: 28px 20px; }
+    h1 { font-size: 28px; line-height: 1.2; margin: 0 0 8px; }
+    p { color: var(--muted); margin: 0 0 24px; }
+    a.btn { display: block; background: var(--accent); color: #fff; text-decoration: none; font-weight: 600;
+            padding: 14px; border-radius: 14px; margin-top: 12px; }
+    a.btn.alt { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
+  </style>
+  <script>
+    // Sends each phone to its own store. ?s=<source> (e.g. ?s=reddit) is passed to
+    // Google Play as utm_source so Play Console shows where installs came from.
+    (function () {
+      var ios = "https://apps.apple.com/app/id6825793736";
+      var src = (new URLSearchParams(location.search).get("s") || "website").replace(/[^a-z0-9_-]/gi, "").slice(0, 40);
+      var play = "https://play.google.com/store/apps/details?id=com.spendloom.app&referrer=" +
+                 encodeURIComponent("utm_source=" + src + "&utm_medium=smartlink");
+      window.SPENDLOOM = { ios: ios, play: play };
+      var ua = navigator.userAgent || "";
+      var isIOS = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+      if (isIOS) location.replace(ios);
+      else if (/Android/i.test(ua)) location.replace(play);
+    })();
+  </script>
+</head>
+<body>
+<main>
+  <div class="card">
+    <h1>{{ site.app_name }}</h1>
+    <p>Expense tracker with an AI spending assistant, budgets, trip splitting and family budgets. Free, no ads.</p>
+    <a class="btn" id="ios" href="https://apps.apple.com/app/id6825793736">Download on the App Store</a>
+    <a class="btn alt" id="play" href="https://play.google.com/store/apps/details?id=com.spendloom.app">Get it on Google Play</a>
+  </div>
+</main>
+<script>document.getElementById("play").href = window.SPENDLOOM.play;</script>
+</body>
+</html>

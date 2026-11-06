@@ -1,0 +1,14 @@
+# ─────────────────────────────────────────────────────────────
+# Edit these values. Every page reads them, so you only change them here.
+# ─────────────────────────────────────────────────────────────
+app_name: "Spendloom"
+owner_name: "Ankesh Katiyar"
+support_email: "expensetracker.app.help@gmail.com"
+last_updated: "20 October 2026"
+
+# GitHub Pages settings (leave as is)
+title: "Spendloom"
+baseurl: "/expense-tracker"
+url: "https://ankeshkatiyar.github.io"
+markdown: kramdown
+exclude: [README.md, publish.sh]
